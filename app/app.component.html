@@ -1,0 +1,48 @@
+<div style="font-size: 13px" align="center" *ngIf="data">
+	<div>
+	
+		<table  style="font-size: 13px; min-width: 280px" border="1" bordercolor="#fff" rules="rows">
+		
+			<tr>
+				<th style=" padding-bottom: 4px; text-align: left" nowrap colspan="4">В среднем за 12 недель</th>
+				
+				<th style="padding-bottom: 4px; text-align: left" nowrap colspan="4" *ngIf="td8">На прошлой неделе, 11&mdash;17 июля</th>
+				
+			</tr>
+
+			<tr class="trHeadPaddingBottom" style="border-bottom: 1px solid #dddddd"> 
+				<td width="53">Место</td> 
+				<td width="150">Пиццерия</td> 
+				<td width="35">Рейтинг</td> 
+				<td width="30" style="border-bottom: none;" *ngIf="td8"></td>
+				<td width="177" *ngIf="td5">Качество, сервис, чистота</td> 
+				<td width="52" [ngStyle]="{'display': td6 ? '' : 'none'}">12 нед.</td> 
+				<td width="69" *ngIf="td7">Рейтинг</td> 
+				<td *ngIf="td8">Проблемы</td>
+				<td style="border-bottom: none" class="mockTd"></td>
+			</tr>
+
+			<tr *ngFor="let item of data; let isFirst = first; let i = index" [class.trFirstPaddingTop]="isFirst" [class.trNextPaddingTop]="!isFirst" [class.tr22PaddingTop]="i==9" valign="top" class="mainTr">
+				<td><span [ngClass]="item.td1.span1.class"></span><span [ngStyle]="item.td1.span2.style">{{item.td1.span2.text}}</span></td>
+				<td><span  [innerHTML]="item.td2.innerHTML"></span></td> 
+				<td [ngStyle]="item.td3.style">{{item.td3.text}}</td> 
+				<td *ngIf="td8"></td> 
+				<td *ngIf="td5" [ngStyle]="item.td5.style" >{{item.td5.text1}}<span [innerHTML]="simbol1"></span>{{item.td5.text2}}<span [innerHTML]="simbol2"></span>{{item.td5.text3}}</td>
+				<td [ngStyle]="{'display': td6 ? '' : 'none'}"><span #spark></span></td> 
+				<td *ngIf="td7" [ngStyle]="item.td7.style">{{item.td7.text}}<span [ngStyle]="item.td7.span1.style" [innerHTML]="item.td7.span1.innerHTML"></span><span [ngStyle]="item.td7.span2.style">{{item.td7.span2.text}}</span></td> 
+				<td *ngIf="td8">{{item.td8.text}}</td>
+				<td class="mockTd"></td>
+			</tr>
+		
+		</table>
+		
+	</div>
+
+    <table class="text" style="margin-top: 50px; font-size: 13px">
+	   <tr>
+	    <td><a>Таблица результатов в гугль-доке</a></td>
+	    <td class="rightcol">Для замечаний и предложений: <a>support@dodopizza.com</a></td>
+	   </tr>
+    </table>
+		
+</div>
