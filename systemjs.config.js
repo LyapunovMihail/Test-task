@@ -39,6 +39,6 @@
         defaultExtension: 'js'
       }
     },
-    baseURL: '/Test-task/'
+    baseURL: '/'
   });
 })(this);
